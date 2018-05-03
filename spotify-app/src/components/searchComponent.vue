@@ -4,9 +4,10 @@
             <span class="select navbar-item has-dropdown is-hoverable is-dark">
 
                 <a class="navbar-link">
-                <!-- Search for --><img :src=queryType height="100" width="50">
+                <!-- Search for --><img :src=queryImage height="100" width="50">
                 </a>
-                    <div class="navbar-dropdown is-boxed">                                            
+                    <div class="navbar-dropdown is-boxed">  
+                        <!-- for some reason the vue bind scr attribute has a different "root (starting location)" than the default html src attribute -->
                         <a @click="specifySearch('song','../../../dist/song.svg')" class="navbar-item">
                             <!-- Song --> <img src="../../dist/song.svg" height="100" width="100">
                         </a>
@@ -38,14 +39,17 @@
         name: 'Search',        
         data () {
             return {
-                queryType: '../../../dist/song.svg'
+                queryType: 'song',
+                queryImage: '../../../dist/song.svg'
+
             }
         },
         methods: {
             specifySearch(category, src) {
                 //store.specifySearch()
-                console.log(category)
-                this.queryType = src;
+                this.queryType = category;  //category that will determine the type of search        (for backend)
+                this.queryImage = src;      //source of image that will display in the dropdown list (for frontend)
+                console.log('type: '+ this.queryType);
             }
         }
     }
