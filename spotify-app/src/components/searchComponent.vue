@@ -41,7 +41,6 @@
             return {
                 queryType: 'song',
                 queryImage: '../../../dist/song.svg'
-
             }
         },
         methods: {
