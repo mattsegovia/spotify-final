@@ -4,16 +4,6 @@
 
 ## Build Setup
 
-
-# TO RUN: 
-
-> cd into 4220_final/spotify_api
-> 'npm install'
-> 'npm build run'
-> cd into src/server
-> node server.js or nodemon server.js
-
-
 ``` bash
 # install dependencies
 npm install

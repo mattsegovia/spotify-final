@@ -1,10 +1,14 @@
 const
     //import our module here as well for easier use
+    spotify = require(`${__dirname}/../../src/spotify-module`);
+    
     express = require('express')
     bodyParser = require('body-parser'),
     path = require('path')
 
     router = express.Router();
+
+console.log("The dir: ", __dirname)
 
 module.exports = () => {
     let authToken  = '';
@@ -12,7 +16,11 @@ module.exports = () => {
     //probably add more inside the .get
     router.get('/search', (req, res) => {
         console.log("Im inside /search");
-        res.json({"Auth token: ": authToken})
+        spotify.search_artist("lil")
+            .then(result => {
+                res.json(result)
+            })
+        
 
     })
 
@@ -112,7 +120,7 @@ module.exports = () => {
 
                     var access_token = body.access_token,
                         refresh_token = body.refresh_token;
-                    authToken = access_token;
+                    authToken = access_token;               //I SET THE AUTH TOKEN VAR HERE
                     var options = {
                         url: 'https://api.spotify.com/v1/me',
                         headers: { 'Authorization': 'Bearer ' + access_token },

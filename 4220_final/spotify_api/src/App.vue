@@ -48,6 +48,8 @@
                       <search-component>
                       <search-component/> <!-- SEARCH BAR *********************** -->
                       
+                      
+
                       </p>
                     </div>
                   </div>
@@ -56,6 +58,7 @@
             </nav>
            <!-- <img src="./assets/logo.png"> -->
     <h1>{{ msg }}</h1>
+    
     
     <!-- <h2>Essential Links</h2>
     <ul>
@@ -79,6 +82,7 @@
 
 <script>
 import searchComponent from './components/searchComponent.vue'
+import Login from "./components/Login.vue"
 
 export default {
   name: 'app',
@@ -88,7 +92,8 @@ export default {
     }
   },
   components: {
-    searchComponent
+    searchComponent,
+    Login
   }
 }
 </script>

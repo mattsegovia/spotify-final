@@ -4,30 +4,30 @@
             <span class="select navbar-item has-dropdown is-hoverable is-dark">
 
                 <a class="navbar-link">
-                <!-- Search for --><img :src=queryImage height="100" width="30">
+                <!-- Search for --><img :src=queryImage height="100" width="50">
                
                 </a>
                     <div class="navbar-dropdown is-boxed">  
                         <!-- for some reason the vue bind scr attribute has a different "root (starting location)" than the default html src attribute -->
-                        <a @click="specifySearch('song','http://icons.iconarchive.com/icons/iynque/ios7-style/1024/Music-icon.png')" class="navbar-item">
-                            <!-- Song --> <img src="http://icons.iconarchive.com/icons/iynque/ios7-style/1024/Music-icon.png" height="50" width="50">
+                        <a @click="specifySearch('song','https://image.flaticon.com/icons/svg/148/148722.svg')" class="navbar-item">
+                            <!-- Song --> <img src="https://image.flaticon.com/icons/svg/148/148722.svg" height="100" width="100">
                         </a>
 
-                        <a @click="specifySearch('artist', 'https://icon-icons.com/icons2/659/PNG/512/microphone_01_icon-icons.com_60036.png')" class="navbar-item">
-                            <!-- Artist --> <img src="https://icon-icons.com/icons2/659/PNG/512/microphone_01_icon-icons.com_60036.png" height="50" width="50">
+                        <a @click="specifySearch('artist', 'https://image.flaticon.com/icons/svg/234/234450.svg')" class="navbar-item">
+                            <!-- Artist --> <img src="https://image.flaticon.com/icons/svg/234/234450.svg" height="100" width="100">
                         </a>
 
-                        <a @click="specifySearch('album', 'http://icons.iconarchive.com/icons/iconsmind/outline/256/CD-icon.png')" class="navbar-item">
-                           <!-- Album --> <img src="http://icons.iconarchive.com/icons/iconsmind/outline/256/CD-icon.png" height="50" width="50">
+                        <a @click="specifySearch('album', 'https://image.flaticon.com/icons/svg/140/140258.svg')" class="navbar-item">
+                           <!-- Album --> <img src="https://image.flaticon.com/icons/svg/140/140258.svg" height="100" width="100">
                         </a>
                     </div>
             </span>
         </p>
         <p class="control">
-            <input class="input" type="text" placeholder="Search...">
+            <input v-model="query" class="input" type="text" placeholder="Search...">
         </p>
         <p class="control">
-            <a class="button is-primary">
+            <a class="button is-primary" href="/search">
             Search
             </a>
         </p>
@@ -41,8 +41,9 @@
         data () {
             //queryImage: '@/assets/album.svg'
             return {
+                query: 'lil',
                 queryType: 'song',
-                queryImage: 'http://icons.iconarchive.com/icons/iynque/ios7-style/1024/Music-icon.png'
+                queryImage: 'https://image.flaticon.com/icons/svg/148/148722.svg'
             }
         },
         methods: {
