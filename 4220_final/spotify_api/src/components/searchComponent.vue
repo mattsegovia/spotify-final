@@ -1,5 +1,5 @@
 <template>
-    <div class="field has-addons has-addons-centered">
+    <div class="field has-addons ">
         <p class="control">
             <span class="select navbar-item has-dropdown is-hoverable is-dark">
 
@@ -27,23 +27,30 @@
             <input v-model="query" class="input" type="text" placeholder="Search...">
         </p>
         <p class="control">
-            <a class="button is-primary" href="/search">
+            <a class="button is-primary"  href = "#" v-on:click="search_artist(query)">
             Search
             </a>
         </p>
+        
+     
+        <DisplayResult :query="query" 
+        :artistInfo="artistInfo"/>
+    
     </div>
-
 </template>
 
 <script>
+    import DisplayResult from './DisplayResult.vue'
+
     export default {
         name: 'Search',        
         data () {
             //queryImage: '@/assets/album.svg'
             return {
                 query: 'lil',
-                queryType: 'song',
-                queryImage: 'https://image.flaticon.com/icons/svg/148/148722.svg'
+                queryType: 'artist',
+                queryImage: 'https://image.flaticon.com/icons/svg/148/148722.svg',
+                artistInfo: {}
             }
         },
         methods: {
@@ -52,7 +59,18 @@
                 this.queryType = category;  //category that will determine the type of search        (for backend)
                 this.queryImage = src;      //source of image that will display in the dropdown list (for frontend)
                 console.log('type: '+ this.queryType);
+            },
+            search_artist(querystring) {
+                let vm = this
+                axios.get(`/search/?artist=${querystring}`)
+                    .then(response => {
+                        vm.artistInfo = response.data
+                        console.log(vm.artistInfo.artists)
+                    })
             }
+        },
+        components: {
+            DisplayResult
         }
     }
 </script>

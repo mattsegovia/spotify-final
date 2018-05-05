@@ -16,12 +16,13 @@ module.exports = () => {
     //probably add more inside the .get
     router.get('/search', (req, res) => {
         console.log("Im inside /search");
-        spotify.search_artist("lil")
+        const {artist = "Taylor"} = req.query
+
+        spotify.search_artist(artist)
             .then(result => {
                 res.json(result)
             })
-        
-
+            
     })
 
     //For the inital load up 
