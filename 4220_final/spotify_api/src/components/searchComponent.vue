@@ -25,7 +25,7 @@
                 </span>
             </p>
             <p class="control is-expanded">
-                <input v-model="query" class="input" type="text" :placeholder="placeholderText">
+                <input v-model="query" class="input" type="text" :placeholder="placeholderText" @keyup.enter="search_artist(query)">
             </p>
             <p class="control">
                 <a class="button is-success"  href = "#" v-on:click="search_artist(query)">
