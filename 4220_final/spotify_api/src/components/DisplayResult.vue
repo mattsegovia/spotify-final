@@ -1,7 +1,6 @@
 <template>
     <div id = "DisplayResult" class="">
-        <br>
-        <h1 class="title is-1">Results: (Can be fixed later)</h1>
+
         <p class="is-pulled-left is-clearfix is-paddingless is-marginless"></p>
 
 <!-- HERE ADD THE V-FOR, to make a button modal everytime--> 

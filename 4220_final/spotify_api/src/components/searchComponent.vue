@@ -1,41 +1,44 @@
 <template>
-    <div class="field has-addons ">
-        <p class="control">
-            <span class="select navbar-item has-dropdown is-hoverable is-dark">
+    <div class="search">
+        <div class="field has-addons ">
+            <p class="control">
+                <span class="select navbar-item has-dropdown is-hoverable is-dark">
 
-                <a class="navbar-link">
-                <!-- Search for --><img :src=queryImage height="100" width="50">
-               
+                    <a class="navbar-link">
+                    <!-- Search for --><img :src=queryImage height="100" width="50">
+                
+                    </a>
+                        <div class="navbar-dropdown is-boxed">  
+                            <!-- for some reason the vue bind scr attribute has a different "root (starting location)" than the default html src attribute -->
+                            <a @click="specifySearch('song','https://image.flaticon.com/icons/svg/148/148722.svg')" class="navbar-item">
+                                <!-- Song --> <img src="https://image.flaticon.com/icons/svg/148/148722.svg" height="100" width="100">
+                            </a>
+
+                            <a @click="specifySearch('artist', 'https://image.flaticon.com/icons/svg/234/234450.svg')" class="navbar-item">
+                                <!-- Artist --> <img src="https://image.flaticon.com/icons/svg/234/234450.svg" height="100" width="100">
+                            </a>
+
+                            <a @click="specifySearch('album', 'https://image.flaticon.com/icons/svg/140/140258.svg')" class="navbar-item">
+                            <!-- Album --> <img src="https://image.flaticon.com/icons/svg/140/140258.svg" height="100" width="100">
+                            </a>
+                        </div>
+                </span>
+            </p>
+            <p class="control is-expanded">
+                <input v-model="query" class="input" type="text" placeholder="Search...">
+            </p>
+            <p class="control">
+                <a class="button is-success"  href = "#" v-on:click="search_artist(query)">
+                Search
                 </a>
-                    <div class="navbar-dropdown is-boxed">  
-                        <!-- for some reason the vue bind scr attribute has a different "root (starting location)" than the default html src attribute -->
-                        <a @click="specifySearch('song','https://image.flaticon.com/icons/svg/148/148722.svg')" class="navbar-item">
-                            <!-- Song --> <img src="https://image.flaticon.com/icons/svg/148/148722.svg" height="100" width="100">
-                        </a>
+            </p>
 
-                        <a @click="specifySearch('artist', 'https://image.flaticon.com/icons/svg/234/234450.svg')" class="navbar-item">
-                            <!-- Artist --> <img src="https://image.flaticon.com/icons/svg/234/234450.svg" height="100" width="100">
-                        </a>
+        </div>
 
-                        <a @click="specifySearch('album', 'https://image.flaticon.com/icons/svg/140/140258.svg')" class="navbar-item">
-                           <!-- Album --> <img src="https://image.flaticon.com/icons/svg/140/140258.svg" height="100" width="100">
-                        </a>
-                    </div>
-            </span>
+        <p>
+            <DisplayResult :query="query" 
+            :artistInfo="artistInfo"/>
         </p>
-        <p class="control">
-            <input v-model="query" class="input" type="text" placeholder="Search...">
-        </p>
-        <p class="control">
-            <a class="button is-primary"  href = "#" v-on:click="search_artist(query)">
-            Search
-            </a>
-        </p>
-        
-     
-        <DisplayResult :query="query" 
-        :artistInfo="artistInfo"/>
-    
     </div>
 </template>
 
@@ -79,8 +82,6 @@
 .search {
     margin: 10px 20px !important;
     padding: 10px;
-    border: 1px solid gainsboro;
-    display: block;
 }
 .title, .subtitle {
     text-align: center !important;
