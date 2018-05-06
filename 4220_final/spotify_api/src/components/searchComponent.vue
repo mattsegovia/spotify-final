@@ -49,7 +49,7 @@
             return {
                 query: 'lil',
                 queryType: 'artist',
-                queryImage: 'https://image.flaticon.com/icons/svg/148/148722.svg',
+                queryImage: 'https://image.flaticon.com/icons/svg/234/234450.svg',
                 artistInfo: {}
             }
         },
