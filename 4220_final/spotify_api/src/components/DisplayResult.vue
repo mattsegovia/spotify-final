@@ -21,18 +21,19 @@
     </header>
 
     <section class="modal-card-body">
-    <img :src="item.images[0].url" class="image is-246x246" class="artistPic">
+    <img :src="item.images[0].url" class="artistPic image is-246x246">
     </section>
     
     <footer class="modal-card-foot">
       <section>
-          <image v-if="item.popularity < 80" src="https://image.flaticon.com/icons/svg/597/597893.svg">
+          <image v-if="item.popularity < 80" src="https://image.flaticon.com/icons/svg/597/597893.svg" />
       </section>
 
     </footer>
   </div>
 </div>
       </li>
+      </ul>
   </li>
 </ul>
 

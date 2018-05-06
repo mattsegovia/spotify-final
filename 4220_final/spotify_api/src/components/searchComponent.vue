@@ -25,7 +25,7 @@
                 </span>
             </p>
             <p class="control is-expanded">
-                <input v-model="query" class="input" type="text" placeholder="Search...">
+                <input v-model="query" class="input" type="text" :placeholder="placeholderText">
             </p>
             <p class="control">
                 <a class="button is-success"  href = "#" v-on:click="search_artist(query)">
@@ -50,9 +50,9 @@
         data () {
             //queryImage: '@/assets/album.svg'
             return {
-                query: 'lil',
+                query: '',
                 queryType: 'artist',
-                queryImage: 'https://image.flaticon.com/icons/svg/148/148722.svg',
+                queryImage: 'https://image.flaticon.com/icons/svg/234/234450.svg',
                 artistInfo: {}
             }
         },
@@ -70,6 +70,11 @@
                         vm.artistInfo = response.data
                         console.log(vm.artistInfo.artists)
                     })
+            }
+        },
+        computed: {
+            placeholderText () {
+                return `Search for ${this.queryType}...`
             }
         },
         components: {
