@@ -20,24 +20,22 @@
       <button v-on:click="closeModals(index)" class="delete" aria-label="close"></button>
     </header>
     <section class="modal-card-body">
-    <img :src="item.images[0].url" class="image is-246x246" >
+    <img :src="item.images[0].url" class="image is-246x246" id="artistPic">
     </section>
     
-    <footer class="modal-card-foot">
-
-      <p class='is-primary'> Popularity score:</p>
-      <section class = "section">
-           
-          <div class="container">
-           
-            <span> <img class = "image is-32x32"  v-if='item.popularity>80' src="https://image.flaticon.com/icons/svg/597/597893.svg">
+    <footer class="modal-card-foot">     
+           <p> Popularity score: </p> 
+            <span> 
+            <img class = "image is-32x32"  v-if='item.popularity>80' src="https://image.flaticon.com/icons/svg/597/597893.svg">
             <img class = "image is-32x32"  v-else-if='item.popularity>50 && item.popularity<80' src="https://image.flaticon.com/icons/svg/34/34780.svg">
             <img class = "image is-32x32"  v-else src="https://image.flaticon.com/icons/svg/34/34812.svg">
-            </span> 
-          </div>
-      </section>
-
+            </span>
+            <br>
+            <p> Folowers: {{item.followers.total}} </p> 
+            
     </footer>
+
+    
   </div>
 </div>
       </li>
@@ -111,5 +109,14 @@ export default {
 }
 .button {
   margin: 50px auto;
+}
+
+#artistPic {
+ width: 70%;
+ height: 70%;
+ display: block;
+ margin-left: auto;
+ margin-right: auto;
+ padding: 10px
 }
 </style>
