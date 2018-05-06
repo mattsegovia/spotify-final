@@ -56,12 +56,13 @@
     <br />
     <h1 class="title">{{ msg }}</h1>
     <search-component /> <!-- SEARCH BAR *********************** -->                   
-
+    <SearchHistory :searches="searches"/>
   </div>
 </template> 
 
 <script>
 import searchComponent from "./components/searchComponent.vue";
+import SearchHistory from "./components/SearchHistory";
 import Login from "./components/Login.vue";
 import DisplayResult from "./components/DisplayResult.vue";
 export default {
@@ -73,9 +74,11 @@ export default {
   },
   components: {
     searchComponent,
+    SearchHistory,
     Login,
     DisplayResult
-  }
+  },
+  props: ['searches']
 };
 </script>
 

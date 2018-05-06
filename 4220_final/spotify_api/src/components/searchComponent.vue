@@ -45,6 +45,8 @@
 <script>
     import DisplayResult from './DisplayResult.vue'
 
+    const socket = io()
+
     export default {
         name: 'Search',        
         data () {
@@ -52,8 +54,7 @@
             return {
                 query: '',
                 queryType: 'artist',
-                queryImage: 'https://image.flaticon.com/icons/svg/234/234450.svg',
-                artistInfo: {}
+                queryImage: 'https://image.flaticon.com/icons/svg/234/234450.svg'
             }
         },
         methods: {
@@ -64,17 +65,24 @@
                 console.log('type: '+ this.queryType);
             },
             search_artist(querystring) {
+                //Upate searches through WebSocket
+                socket.emit('add-search', this.query)
                 let vm = this
                 axios.get(`/search/?artist=${querystring}`)
                     .then(response => {
-                        vm.artistInfo = response.data
+                        vm.$store.state.artistInfo = response.data
                         console.log(vm.artistInfo.artists)
                     })
+                //Clear query
+                this.query = ''
             }
         },
         computed: {
             placeholderText () {
                 return `Search for ${this.queryType}...`
+            },
+            artistInfo () {
+                return this.$store.state.artistInfo
             }
         },
         components: {

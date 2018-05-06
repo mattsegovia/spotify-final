@@ -138,7 +138,18 @@
       })();
     </script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  
-
+    <script type="text/javascript" src="https://unpkg.com/socket.io-client@2.1.0/dist/socket.io.js"></script>
+    <script>
+      const socket = io()
+      //Pointer to Vue app and store (Vuex)
+      let app, store;
+      // Client Side Socket Events
+        socket.on('refresh-searches', searches => {
+          console.log('Searches triggered.')
+          console.log(app.msg)
+          console.log(searches)
+          store.state.searches = searches
+        })
+    </script>
   </body>
 </html>

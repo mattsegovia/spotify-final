@@ -78,7 +78,7 @@ exports.searchAlbumTrack = (id) =>{
 //Alyssa 
 exports.search_artist = (artist) => {
   console.log("Will display artist based on name: ");
-  return _fetch(`v1/search?q=${artist}&type=artist&market=US&limit=5`);
+  return _fetch(`v1/search?q=${artist}&type=artist&market=US&limit=10`);
 }
 
 //Matthew

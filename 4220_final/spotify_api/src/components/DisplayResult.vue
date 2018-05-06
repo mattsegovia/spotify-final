@@ -21,7 +21,10 @@
     </header>
 
     <section class="modal-card-body">
-    <img :src="item.images[0].url" class="artistPic image is-246x246">
+    <!-- <img :src="item.images[0].url" class="artistPic image is-246x246"> -->
+    <img v-if="item.images.length > 0" :src="item.images[0].url" class="artistPic image is-246x246" >
+    <!-- Show default image -->
+    <img v-else src="https://image.flaticon.com/icons/svg/174/174872.svg" class="artistPic image is-246x246" >
     </section>
     
     <footer class="modal-card-foot">
