@@ -24,10 +24,17 @@
     </section>
     
     <footer class="modal-card-foot">
-      <button class="button is-success">Save changes</button>
-      <button class="button">Cancel</button>
-      <section>
-          <image v-if="item.popularity < 80" src="https://image.flaticon.com/icons/svg/597/597893.svg">
+
+      <p class='is-primary'> Popularity score:</p>
+      <section class = "section">
+           
+          <div class="container">
+           
+            <span> <img class = "image is-32x32"  v-if='item.popularity>80' src="https://image.flaticon.com/icons/svg/597/597893.svg">
+            <img class = "image is-32x32"  v-else-if='item.popularity>50 && item.popularity<80' src="https://image.flaticon.com/icons/svg/34/34780.svg">
+            <img class = "image is-32x32"  v-else src="https://image.flaticon.com/icons/svg/34/34812.svg">
+            </span> 
+          </div>
       </section>
 
     </footer>
@@ -37,51 +44,6 @@
   </li>
 </ul>
 
-
-
-
-
-<!--
-<button v-on:click="openModals(0)" class="button is-large"> 
-    Open this 
-</button>
-<div class="modal" id="modals">
-  <div class="modal-background"></div>
-  <div class="modal-card">
-    <header class="modal-card-head">
-      <p class="modal-card-title">Modal title for modal 1</p>
-      <button v-on:click="closeModals(0)" class="delete" aria-label="close"></button>
-    </header>
-    <section class="modal-card-body">
-    
-    </section>
-    <footer class="modal-card-foot">
-      <button class="button is-success">Save changes</button>
-      <button class="button">Cancel</button>
-    </footer>
-  </div>
-</div>
-
-<button v-on:click="openModals(1)" class="button is-large"> 
-    Open this 
-</button>
-<div class="modal" id="modals">
-  <div class="modal-background"></div>
-  <div class="modal-card">
-    <header class="modal-card-head">
-      <p class="modal-card-title">Modal title for modal 2</p>
-      <button v-on:click="closeModals(1)" class="delete" aria-label="close"></button>
-    </header>
-    <section class="modal-card-body">
-     
-    </section>
-    <footer class="modal-card-foot">
-      <button class="button is-success">Save changes</button>
-      <button class="button">Cancel</button>
-    </footer>
-  </div>
-</div>
--->
 
     </div> <!-- End of root element -->
 
