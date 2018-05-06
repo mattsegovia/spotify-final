@@ -1,7 +1,7 @@
 <template>
   <div id="app">
 
-  <nav class="navbar is-transparent is-dark">
+    <nav class="navbar is-transparent is-dark">
               <div class="navbar-brand">
                 <a class="navbar-item" href="https://www.spotify.com/us/" w>
                   <img src="./assets/spotify_logo_green.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
@@ -51,14 +51,11 @@
                   </div>
                 </div>
               </div>
-            </nav>
+    </nav>
 
-          <search-component/> <!-- SEARCH BAR *********************** -->
-                      
-
-
-    <!-- <img src="./assets/logo.png"> -->
-    <h1>{{ msg }}</h1>
+    <br />
+    <h1 class="title">{{ msg }}</h1>
+    <search-component /> <!-- SEARCH BAR *********************** -->                   
 
   </div>
 </template> 
@@ -71,7 +68,7 @@ export default {
   name: "app",
   data() {
     return {
-      msg: "Search Artist Information"
+      msg: "Search for an artist, song, or album!"
     };
   },
   components: {
@@ -90,11 +87,6 @@ export default {
   text-align: center;
   color: #2c3e50;
   /* margin-top: 60px; */
-}
-
-h1,
-h2 {
-  font-weight: normal;
 }
 
 ul {
