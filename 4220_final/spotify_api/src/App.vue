@@ -4,13 +4,8 @@
   <nav class="navbar is-transparent is-dark">
       <div class="navbar-brand">
           <a class="navbar-item" href="https://www.spotify.com/us/" w>
-            <img src="./assets/spotify_logo_green.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
+            <img src="./assets/spotify_logo_green.png" width="112" height="28">
           </a>
-          <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
       </div>
             
       <div id="navbarExampleTransparentExample" class="navbar-menu">
