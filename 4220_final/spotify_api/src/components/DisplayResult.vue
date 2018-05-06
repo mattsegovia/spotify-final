@@ -23,16 +23,21 @@
     <img :src="item.images[0].url" class="image is-246x246" id="artistPic">
     </section>
     
-    <footer class="modal-card-foot">     
-           <p> Popularity score: </p> 
-            <span> 
-            <img class = "image is-32x32"  v-if='item.popularity>80' src="https://image.flaticon.com/icons/svg/597/597893.svg">
+    <footer class="modal-card-foot">    
+      <div class="container"> 
+           <span class = ''> Popularity score: 
+            <img class = "image is-32x32 has-text-centered"  v-if='item.popularity>80' src="https://image.flaticon.com/icons/svg/597/597893.svg">
             <img class = "image is-32x32"  v-else-if='item.popularity>50 && item.popularity<80' src="https://image.flaticon.com/icons/svg/34/34780.svg">
             <img class = "image is-32x32"  v-else src="https://image.flaticon.com/icons/svg/34/34812.svg">
-            </span>
+            </span> 
+          
             <br>
             <p> Folowers: {{item.followers.total}} </p> 
-            
+            <br>
+            <p>  Genres: {{item.genres.toString()}} </p>
+            <br>
+            <a :href="item.external_urls.spotify" >Artist Profile</a>
+      </div>     
     </footer>
 
     
