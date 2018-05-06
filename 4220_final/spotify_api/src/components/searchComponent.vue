@@ -35,7 +35,9 @@
 
         </div>
 
-        <p>
+        <p v-show="isFetchingResult">Searching for {{ queryType }}...</p>            
+
+        <p v-show="!isFetchingResult">
             <DisplayResult :query="query" 
             :artistInfo="artistInfo"/>
         </p>
@@ -53,7 +55,8 @@
                 query: 'lil',
                 queryType: 'artist',
                 queryImage: 'https://image.flaticon.com/icons/svg/234/234450.svg',
-                artistInfo: {}
+                artistInfo: {},
+                isFetchingResult: false
             }
         },
         methods: {
@@ -64,9 +67,11 @@
                 console.log('type: '+ this.queryType);
             },
             search_artist(querystring) {
+                this.isFetchingResult = true
                 let vm = this
                 axios.get(`/search/?artist=${querystring}`)
                     .then(response => {
+                        vm.isFetchingResult = false
                         vm.artistInfo = response.data
                         console.log(vm.artistInfo.artists)
                     })
