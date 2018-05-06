@@ -19,13 +19,12 @@
       <p class="modal-card-title">{{item.name}}</p>
       <button v-on:click="closeModals(index)" class="delete" aria-label="close"></button>
     </header>
+
     <section class="modal-card-body">
-    <img :src="item.images[0].url" class="image is-246x246" >
+    <img :src="item.images[0].url" class="image is-246x246" class="artistPic">
     </section>
     
     <footer class="modal-card-foot">
-      <button class="button is-success">Save changes</button>
-      <button class="button">Cancel</button>
       <section>
           <image v-if="item.popularity < 80" src="https://image.flaticon.com/icons/svg/597/597893.svg">
       </section>
@@ -149,5 +148,13 @@ export default {
 }
 .button {
   margin: 50px auto;
+}
+.artistPic {
+  width: 70%; 
+  height: 70%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px
 }
 </style>
