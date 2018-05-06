@@ -56,7 +56,7 @@
     <br />
     <h1 class="title">{{ msg }}</h1>
     <search-component /> <!-- SEARCH BAR *********************** -->                   
-    <SearchHistory :searches="searches"/>
+    <SearchHistory/>
   </div>
 </template> 
 
@@ -77,8 +77,7 @@ export default {
     SearchHistory,
     Login,
     DisplayResult
-  },
-  props: ['searches']
+  }
 };
 </script>
 

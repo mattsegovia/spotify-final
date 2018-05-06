@@ -8,11 +8,8 @@
                 <button class="delete" aria-label="close" @click="openHistory = false"></button>
                 </header>
                 <section class="modal-card-body">
-                <!-- Content ... -->
-                <!-- <p v-for="search in searches" :key="searches.indexOf(search)" v-text="search"></p> -->
-                <!-- <p>Count: {{count}}</p> -->
-                <!-- <p v-for="search in testSearches" :key="testSearches.indexOf(search)" v-text="search"></p> -->
-                 <a class="panel-block" v-for="search in testSearches" :key="testSearches.indexOf(search)" v-text="search" @click="search_artist(search)"></a>
+                <!-- Content -->
+                 <a class="panel-block" v-for="search in currentSearches" :key="currentSearches.indexOf(search)" @click="search_artist(search.searchQuery)">{{search.searchQuery}} - {{search.searchTime}}</a>
                 </section>
                 <footer class="modal-card-foot">
                 <!-- <button class="button is-success">Save changes</button>
@@ -35,12 +32,11 @@ export default {
       artistInfo: {}
     };
   },
-  props: ["searches"],
   computed: {
     count() {
       return this.$store.state.count;
     },
-    testSearches() {
+    currentSearches() {
       return this.$store.state.searches;
     }
   },

@@ -15,15 +15,11 @@ Vue.config.productionTip = false
 
 store = new Vuex.Store({
   state: {
-    count: 0,
     searches: [],
     artistInfo: {},
     query: ''
   },
   mutations: {
-    increment (state) {
-      state.count++
-    },
     update(state, newSearches) {
       state.searches = newSearches
     },
@@ -39,9 +35,5 @@ app = new Vue({
   router,
   store,
   components: { App },
-  template: '<App :searches="searches"/>',
-  data: {
-    msg: 'Testing...',
-    searches: []
-  }
+  template: '<App/>'
 })

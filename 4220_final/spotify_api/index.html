@@ -146,7 +146,6 @@
       // Client Side Socket Events
         socket.on('refresh-searches', searches => {
           console.log('Searches triggered.')
-          console.log(app.msg)
           console.log(searches)
           store.state.searches = searches
         })

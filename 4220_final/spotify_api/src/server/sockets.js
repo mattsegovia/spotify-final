@@ -13,14 +13,12 @@ module.exports = (server) => {
 
         socket.on('add-search', search => {
 
-            searches.push(search)
+            searches.push({searchTime: moment().format('LLLL'), searchQuery: search})
             io.emit('refresh-searches', searches)
 
         })
 
     })
-
-
-
+    
     return io
 }
