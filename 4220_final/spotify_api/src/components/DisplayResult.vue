@@ -4,33 +4,44 @@
         
         <p class="is-pulled-left is-clearfix is-paddingless is-marginless"></p>
 
-<!-- HERE ADD THE V-FOR, to make a button modal everytime--> 
+<!-- HERE ADD THE V-FOR, to make a button modal everytime-->
 <ul id="example-1">
-  <li v-for="artists in artistInfo" :key="artists" >
-      <ul>
-      <li v-for="(item,index) in artists.items" :key="item" >
-        <button v-on:click="openModals(index)" class="button is-large"> 
-    {{item.name}} 
+ <li v-for="artists in artistInfo" :key="artists" >
+     <ul>
+     <li v-for="(item,index) in artists.items" :key="item" >
+       <button v-on:click="openModals(index)" class="button is-large">
+   {{item.name}}
 </button>
 <div class="modal" id="modals">
-  <div class="modal-background"></div>
-  <div class="modal-card">
-    <header class="modal-card-head">
-      <p class="modal-card-title">{{item.name}}</p>
-      <button v-on:click="closeModals(index)" class="delete" aria-label="close"></button>
-    </header>
 
-    <section class="modal-card-body">
-    <img :src="item.images[0].url" class="image is-246x246" class="artistPic">
-    </section>
-    
-    <footer class="modal-card-foot">
-      <section>
-          <image v-if="item.popularity < 80" src="https://image.flaticon.com/icons/svg/597/597893.svg">
-      </section>
+ <div class="modal-background"></div>
+ <div class="modal-card">
 
-    </footer>
-  </div>
+   <header class="modal-card-head">
+     <p class="modal-card-title">{{item.name}}</p>
+     <button v-on:click="closeModals(index)" class="delete" aria-label="close"></button>
+   </header>
+
+   <section class="modal-card-body">
+    <img :src="item.images[0].url" class="image is-246x246" id="artistPic">
+   </section>
+   
+  <footer class="modal-card-foot">    
+
+          <p> Popularity score: </p>
+          <span>
+            <img class = "image is-32x32"  v-if='item.popularity>80' src="https://image.flaticon.com/icons/svg/597/597893.svg">
+            <img class = "image is-32x32"  v-else-if='item.popularity>50 && item.popularity<80' src="https://image.flaticon.com/icons/svg/34/34780.svg">
+            <img class = "image is-32x32"  v-else src="https://image.flaticon.com/icons/svg/34/34812.svg">
+          </span>
+          <br>
+          <p> Folowers: {{item.followers.total}}</p>
+          <br>
+          <p>  Genres: {{item.genres.join(" , ")}} </p>
+
+   </footer>
+
+ </div>
 </div>
       </li>
   </li>
@@ -149,12 +160,12 @@ export default {
 .button {
   margin: 50px auto;
 }
-.artistPic {
-  width: 70%; 
-  height: 70%;
+#artistPic {
+  width: 65%; 
+  height: 65%;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  padding: 10px
+  overflow: auto
 }
 </style>
