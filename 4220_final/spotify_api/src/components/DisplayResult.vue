@@ -27,64 +27,35 @@
     <img v-else src="https://image.flaticon.com/icons/svg/174/174872.svg" class="artistPic image is-246x246" >
     </section>
     
-    <footer class="modal-card-foot">
+    <!-- <footer class="modal-card-foot">
       <section>
           <image v-if="item.popularity < 80" src="https://image.flaticon.com/icons/svg/597/597893.svg" />
       </section>
+    </footer> -->
 
+    <footer class="modal-card-foot">    
+      <div class="container"> 
+           <span> Popularity score: 
+            <img class = "image is-32x32 has-text-centered"  v-if='item.popularity>80' src="https://image.flaticon.com/icons/svg/597/597893.svg">
+            <img class = "image is-32x32"  v-else-if='item.popularity>50 && item.popularity<80' src="https://image.flaticon.com/icons/svg/34/34780.svg">
+            <img class = "image is-32x32"  v-else src="https://image.flaticon.com/icons/svg/34/34812.svg">
+            </span> 
+          
+            <br>
+            <p> Folowers: {{item.followers.total}} </p> 
+            <br>
+            <p>  Genres: {{item.genres.toString()}} </p>
+            <br>
+            <a :href="item.external_urls.spotify" >Artist Profile</a>
+      </div>     
     </footer>
+
   </div>
 </div>
       </li>
       </ul>
   </li>
 </ul>
-
-
-
-
-
-<!--
-<button v-on:click="openModals(0)" class="button is-large"> 
-    Open this 
-</button>
-<div class="modal" id="modals">
-  <div class="modal-background"></div>
-  <div class="modal-card">
-    <header class="modal-card-head">
-      <p class="modal-card-title">Modal title for modal 1</p>
-      <button v-on:click="closeModals(0)" class="delete" aria-label="close"></button>
-    </header>
-    <section class="modal-card-body">
-    
-    </section>
-    <footer class="modal-card-foot">
-      <button class="button is-success">Save changes</button>
-      <button class="button">Cancel</button>
-    </footer>
-  </div>
-</div>
-
-<button v-on:click="openModals(1)" class="button is-large"> 
-    Open this 
-</button>
-<div class="modal" id="modals">
-  <div class="modal-background"></div>
-  <div class="modal-card">
-    <header class="modal-card-head">
-      <p class="modal-card-title">Modal title for modal 2</p>
-      <button v-on:click="closeModals(1)" class="delete" aria-label="close"></button>
-    </header>
-    <section class="modal-card-body">
-     
-    </section>
-    <footer class="modal-card-foot">
-      <button class="button is-success">Save changes</button>
-      <button class="button">Cancel</button>
-    </footer>
-  </div>
-</div>
--->
 
     </div> <!-- End of root element -->
 
@@ -118,19 +89,23 @@ export default {
       //ADD coDE HERE
       let modal = document.getElementsByClassName("modal");
       modal[n].style.display = "block";
+      // modal[n].addClass('is-active')
     },
     closeModals(n) {
       //For multiple modals
       let modals = document.getElementsByClassName("modal");
-      //i represents which modal. It will go through all modals
 
       modals[n].style.display = "none";
+      // modal[n].removeClass('is-active')
     }
   }
 };
 </script>
 
 <style scoped>
+.image {
+  margin: auto;
+}
 .modal {
   display: none;
   background-color: rgba(26, 25, 25, 0.678);
@@ -154,11 +129,11 @@ export default {
   margin: 50px auto;
 }
 .artistPic {
-  width: 70%; 
+  width: 70%;
   height: 70%;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  padding: 10px
+  padding: 10px;
 }
 </style>

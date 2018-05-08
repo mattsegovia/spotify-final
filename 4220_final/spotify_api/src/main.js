@@ -16,8 +16,8 @@ Vue.config.productionTip = false
 store = new Vuex.Store({
   state: {
     searches: [],
-    artistInfo: {},
-    query: ''
+    artistInfo: {}
+    // query: ''
   },
   mutations: {
     update(state, newSearches) {
