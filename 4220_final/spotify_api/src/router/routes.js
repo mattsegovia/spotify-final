@@ -1,28 +1,28 @@
 const
     //import our module here as well for easier use
-    spotify = require(`${__dirname}/../../src/spotify-module`);
-    
-    express = require('express')
-    bodyParser = require('body-parser'),
+    spotify = require(`spotify-module`);
+
+express = require('express')
+bodyParser = require('body-parser'),
     path = require('path')
 
-    router = express.Router();
+router = express.Router();
 
 console.log("The dir: ", __dirname)
 
 module.exports = () => {
-    let authToken  = '';
+    let authToken = '';
 
     //probably add more inside the .get
     router.get('/search', (req, res) => {
         console.log("Im inside /search");
-        const {artist = "Taylor"} = req.query
+        const { artist = "Taylor" } = req.query
 
         spotify.search_artist(artist)
             .then(result => {
                 res.json(result)
             })
-            
+
     })
 
     //For the inital load up 
