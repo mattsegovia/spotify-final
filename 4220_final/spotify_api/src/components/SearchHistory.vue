@@ -17,7 +17,7 @@
                 </footer>
             </div>
         </div>
-        <a @click="openHistory = true" class="button is-success" href="#">Search History</a>
+        <a @click="openHistory = true" class="button is-success" href="#" id="search-history">Search History</a>
     </div>
 </template>
 <script>
@@ -51,6 +51,8 @@ export default {
 };
 </script>
 <style scoped>
-
+  #search-history {
+    margin-bottom: 5vmin;
+  }
 </style>
 

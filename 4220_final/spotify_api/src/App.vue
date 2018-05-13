@@ -6,6 +6,7 @@
                 <a class="navbar-item" href="https://www.spotify.com/us/" w>
                   <img src="./assets/spotify_logo_green.png" width="112" height="28">
                 </a>
+              </div>
             
               <div id="navbarExampleTransparentExample" class="navbar-menu">
                 <div class="navbar-start">
@@ -16,6 +17,7 @@
                     New Releases
                   </a>
                 </div>
+              </div>
     </nav>
 
     <br />

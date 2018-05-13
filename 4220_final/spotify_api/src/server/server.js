@@ -8,7 +8,7 @@ const
 //from routes inside router folder
 app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname, '..', '/../dist')))
-app.use(require('../router/routes')())
+app.use(require('../router/routes')()) //routes.js for wrapping spotify-module methods
 const io = require('./sockets')(server)
 
 // console.log("the dir name: ", path.join(__dirname, '..', '/../dist/'));

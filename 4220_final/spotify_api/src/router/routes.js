@@ -1,12 +1,12 @@
 const
     //import our module here as well for easier use
-    spotify = require(`${__dirname}/../../src/spotify-module`);
+    spotify = require('spotify-module')
     
     express = require('express')
     bodyParser = require('body-parser'),
     path = require('path')
 
-    router = express.Router();
+    router = express.Router()
 
 console.log("The dir: ", __dirname)
 
