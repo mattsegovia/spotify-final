@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
-    "start": "node src/server/server.js",
+    "start": "npm run dev",
     "build": "node build/build.js"
   },
   "dependencies": {
@@ -20,6 +20,7 @@
     "socket.io": "^2.1.0",
     "socket.io-client": "^2.1.0",
     "spotify-module": "file:src/spotify-module",
+    "superagent": "^3.8.3",
     "utf-8-validate": "^4.0.2",
     "uws": "^9.148.0",
     "vue": "^2.5.2",
